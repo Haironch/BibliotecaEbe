@@ -1,5 +1,48 @@
 import React from "react";
-import PDFList from "../components/PDFList";
+import { Download, BookOpen } from "lucide-react";
+
+// Componente PDFCard para cada documento
+const PDFCard = ({ pdf, onPDFOpen, onPDFDownload }) => {
+  return (
+    <div className="bg-slate-50 rounded-xl p-4 shadow-sm transition-all duration-300 hover:shadow-md border border-slate-100">
+      <h3 className="text-slate-700 font-medium mb-3 line-clamp-2 min-h-[48px]">
+        {pdf.name}
+      </h3>
+      <div className="flex gap-2">
+        <button
+          onClick={() => onPDFOpen(pdf)}
+          className="flex-1 flex items-center justify-center gap-2 bg-blue-50 text-blue-600 px-3 py-2 rounded-lg hover:bg-blue-100 transition-colors duration-200"
+        >
+          <BookOpen className="w-4 h-4" />
+          <span className="text-sm">Abrir</span>
+        </button>
+        <button
+          onClick={() => onPDFDownload(pdf)}
+          className="flex-1 flex items-center justify-center gap-2 bg-slate-100 text-slate-600 px-3 py-2 rounded-lg hover:bg-slate-200 transition-colors duration-200"
+        >
+          <Download className="w-4 h-4" />
+          <span className="text-sm">Descargar</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Componente PDFList mejorado
+const PDFList = ({ pdfs, onPDFOpen, onPDFDownload }) => {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {pdfs.map((pdf, index) => (
+        <PDFCard
+          key={index}
+          pdf={pdf}
+          onPDFOpen={onPDFOpen}
+          onPDFDownload={onPDFDownload}
+        />
+      ))}
+    </div>
+  );
+};
 
 const DoctinaBasica = () => {
   const pdfFiles = [
@@ -99,7 +142,6 @@ const DoctinaBasica = () => {
 
   const handlePDFOpen = (pdf) => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
     if (isIOS) {
       window.location.href = pdf.path;
     } else {
@@ -120,10 +162,10 @@ const DoctinaBasica = () => {
   };
 
   return (
-    <div className="min-h-screen py-6 sm:py-12">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="bg-white rounded-3xl shadow-lg p-4 sm:p-8">
-          <h1 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-green-500 text-center">
+    <div className="min-h-screen py-6 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 lg:p-8 border border-slate-100">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-slate-700 text-center">
             Doctrina Básica
           </h1>
           <PDFList
