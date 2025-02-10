@@ -120,7 +120,7 @@ const DoctinaBasica = () => {
     },
     {
       name: "Los dones del Espirtu Santo I - ED-1",
-      path: "/documentos/doctrina-basica/Los dones del Espiritu Santo I.pdf",
+      path: "/documentos/doctrina-basica/Los dones del Espirtu Santo 1.pdf",
     },
     {
       name: "Los Frutos del Espíritu Santo I",
@@ -136,7 +136,7 @@ const DoctinaBasica = () => {
     },
     {
       name: "PESO, TRANSGRESIÓN, PECADO E INIQUIDAD - ED24",
-      path: "/documentos/doctrina-basica/PESO, TRANSGRESION, PECADO E INIQUIDAD.pdf",
+      path: "/documentos/doctrina-basica/PESO, TRANSGRESIÓN,.pdf",
     },
   ];
 
