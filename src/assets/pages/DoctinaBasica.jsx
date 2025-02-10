@@ -3,40 +3,104 @@ import PDFList from "../components/PDFList";
 
 const DoctinaBasica = () => {
   const pdfFiles = [
-    "BAUTISMO CON EL ESPÍRITU - ED-1",
-    "BAUTISMO EN AGUA - EDV",
-    "EL DON DE PROFECIA I - ED24",
-    "EL DON DE PROFECÍA II - ED",
-    "EL MINISTERIO DE LA MUJER - ED",
-    "EL SERVICIO - ED",
-    "EL VELO",
-    "FACETAS DEL BAUTISMO - EDV",
-    "KOINONÍA - ED",
-    "LA COBERTURA - ED",
-    "LA EVOLUCIÓN DEL CRISTIANO - ED",
-    "LA MINISTRACIÓN DEL ALMA - ED24",
-    "LA SALVACIÓN - ED24",
-    "LA SANTA CENA - ED",
-    "LA SUJECIÓN - ED",
-    "LOS BENEFICIOS DE LA SANGRE - ED",
-    "LOS CINCO MINISTERIOS",
-    "Los dones del Espíritu Santo II - ED (1)",
-    "Los dones del Espirtu Santo I - ED-1",
-    "Los Frutos del Espíritu Santo I",
-    "LOS FRUTOS DEL ESPÍRITU SANTO II - ED",
-    "LOS RECEPTORES - ED",
-    "PESO, TRANSGRESIÓN, PECADO E INIQUIDAD - ED24",
-  ].map((name) => ({
-    name,
-    path: `/documentos/doctrina-basica/${name}_compressed.pdf`,
-  }));
+    {
+      name: "BAUTISMO CON EL ESPÍRITU - ED-1",
+      path: "/documentos/doctrina-basica/BAUTISMO CON EL ESPIRITU.pdf",
+    },
+    {
+      name: "BAUTISMO EN AGUA - EDV",
+      path: "/documentos/doctrina-basica/BAUTISMO EN AGUA.pdf",
+    },
+    {
+      name: "EL DON DE PROFECIA I - ED24",
+      path: "/documentos/doctrina-basica/EL DON DE PROFECIA I.pdf",
+    },
+    {
+      name: "EL DON DE PROFECÍA II - ED",
+      path: "/documentos/doctrina-basica/EL DON DE PROFECIA II.pdf",
+    },
+    {
+      name: "EL MINISTERIO DE LA MUJER - ED",
+      path: "/documentos/doctrina-basica/EL MINISTERIO DE LA MUJER.pdf",
+    },
+    {
+      name: "EL SERVICIO - ED",
+      path: "/documentos/doctrina-basica/EL SERVICIO.pdf",
+    },
+    {
+      name: "EL VELO",
+      path: "/documentos/doctrina-basica/EL VELO.pdf",
+    },
+    {
+      name: "FACETAS DEL BAUTISMO - EDV",
+      path: "/documentos/doctrina-basica/FACETAS DEL BAUTISMO.pdf",
+    },
+    {
+      name: "KOINONÍA - ED",
+      path: "/documentos/doctrina-basica/KOINONIA.pdf",
+    },
+    {
+      name: "LA COBERTURA - ED",
+      path: "/documentos/doctrina-basica/LA COBERTURA.pdf",
+    },
+    {
+      name: "LA EVOLUCIÓN DEL CRISTIANO - ED",
+      path: "/documentos/doctrina-basica/LA EVOLUCION DEL CRISTIANO.pdf",
+    },
+    {
+      name: "LA MINISTRACIÓN DEL ALMA - ED24",
+      path: "/documentos/doctrina-basica/LA MINISTRACION DEL ALMA.pdf",
+    },
+    {
+      name: "LA SALVACIÓN - ED24",
+      path: "/documentos/doctrina-basica/LA SALVACION.pdf",
+    },
+    {
+      name: "LA SANTA CENA - ED",
+      path: "/documentos/doctrina-basica/LA SANTA CENA.pdf",
+    },
+    {
+      name: "LA SUJECIÓN - ED",
+      path: "/documentos/doctrina-basica/LA SUJECION.pdf",
+    },
+    {
+      name: "LOS BENEFICIOS DE LA SANGRE - ED",
+      path: "/documentos/doctrina-basica/LOS BENEFICIOS DE LA SANGRE.pdf",
+    },
+    {
+      name: "LOS CINCO MINISTERIOS",
+      path: "/documentos/doctrina-basica/LOS CINCO MINISTERIOS.pdf",
+    },
+    {
+      name: "Los dones del Espíritu Santo II - ED (1)",
+      path: "/documentos/doctrina-basica/Los dones del Espiritu Santo II.pdf",
+    },
+    {
+      name: "Los dones del Espirtu Santo I - ED-1",
+      path: "/documentos/doctrina-basica/Los dones del Espiritu Santo I.pdf",
+    },
+    {
+      name: "Los Frutos del Espíritu Santo I",
+      path: "/documentos/doctrina-basica/Los Frutos del Espiritu Santo.pdf",
+    },
+    {
+      name: "LOS FRUTOS DEL ESPÍRITU SANTO II - ED",
+      path: "/documentos/doctrina-basica/LOS FRUTOS DEL ESPIRITU SANTO II.pdf",
+    },
+    {
+      name: "LOS RECEPTORES - ED",
+      path: "/documentos/doctrina-basica/LOS RECEPTORES.pdf",
+    },
+    {
+      name: "PESO, TRANSGRESIÓN, PECADO E INIQUIDAD - ED24",
+      path: "/documentos/doctrina-basica/PESO, TRANSGRESION, PECADO E INIQUIDAD.pdf",
+    },
+  ];
 
   const handlePDFClick = (pdf) => {
-    // Detectar si es iOS
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     if (isIOS) {
-      // En iOS usamos un enlace temporal
       const link = document.createElement("a");
       link.href = pdf.path;
       link.target = "_blank";
@@ -45,10 +109,7 @@ const DoctinaBasica = () => {
       link.click();
       document.body.removeChild(link);
     } else {
-      // Para otros dispositivos intentamos window.open
       const newWindow = window.open(pdf.path, "_blank");
-
-      // Si window.open falla (por ejemplo, si está bloqueado), usamos el método alternativo
       if (!newWindow) {
         window.location.href = pdf.path;
       }
