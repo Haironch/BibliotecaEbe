@@ -21,7 +21,7 @@ const PDFCard = ({ pdf, onPDFOpen, onPDFDownload }) => {
           className="flex-1 flex items-center justify-center gap-2 bg-slate-100 text-slate-600 px-3 py-2 rounded-lg hover:bg-slate-200 transition-colors duration-200"
         >
           <Download className="w-4 h-4" />
-          <span className="text-sm">Descargar</span>
+          <span className="text-sm">Descarga</span>
         </button>
       </div>
     </div>
