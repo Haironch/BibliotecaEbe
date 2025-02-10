@@ -32,8 +32,27 @@ const DoctinaBasica = () => {
   }));
 
   const handlePDFClick = (pdf) => {
-    console.log("Abriendo:", pdf.path);
-    window.open(pdf.path, "_blank");
+    // Detectar si es iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    if (isIOS) {
+      // En iOS usamos un enlace temporal
+      const link = document.createElement("a");
+      link.href = pdf.path;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // Para otros dispositivos intentamos window.open
+      const newWindow = window.open(pdf.path, "_blank");
+
+      // Si window.open falla (por ejemplo, si está bloqueado), usamos el método alternativo
+      if (!newWindow) {
+        window.location.href = pdf.path;
+      }
+    }
   };
 
   return (
