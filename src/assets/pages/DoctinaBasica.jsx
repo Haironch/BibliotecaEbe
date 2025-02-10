@@ -52,7 +52,7 @@ const DoctinaBasica = () => {
     },
     {
       name: "BAUTISMO EN AGUA - EDV",
-      path: "/documentos/doctrina-basica/BAUTISMO EN AGUA.pdf",
+      path: "/documentos/doctrina-basica/BAUTISMOENAGUA.pdf",
     },
     {
       name: "EL DON DE PROFECIA I - ED24",
